@@ -1,0 +1,273 @@
+body {
+  background-image: url("https://i.pinimg.com/564x/54/f0/19/54f019352e991d95398f6b5d6dca2dde.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  backdrop-filter: blur(50px);
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+p {
+  color:white;
+}
+
+main {
+  margin: 20px;
+}
+
+h4 {
+  color: white;
+}
+
+h2 {
+  color: #D9D9D9 !important;
+}
+
+h5 {
+  color: #D9D9D9 !important;
+
+}
+
+h3 {
+  color: #A6A6A6 !important;
+}
+
+hr {
+  height: 3px;
+  background-color: #B0B2A1;
+  border: none;
+}
+
+.caixa-menu-principal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  margin: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 30px;
+}
+
+.logo h1 {
+  color: white;
+  margin: 0;
+  font-size: 2em;
+}
+
+.explorador a {
+  display: inline-block;
+  padding: 20px 30px;
+  background-color: #D1D4B9;
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 50px;
+  transition: background-color 0.3s ease;
+}
+
+.explorador a:hover {
+  background-color: #B0B2A1;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-image: none !important;
+  border-radius: 0 !important;
+  width: 30px !important;
+  height: 30px !important;
+  background-color: transparent !important;
+}
+
+.carousel-caption h5,
+.carousel-caption p {
+  background: none !important;
+  color: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+.carousel-inner {
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.carousel-item img {
+  border-radius: 15px;
+}
+
+.carousel-caption {
+  color: white !important;
+  padding: 20px !important;
+  border-radius: 10px !important;
+}
+
+.carousel-control-prev-icon::before {
+  content: '\2039';
+  font-size: 30px;
+  color: black;
+}
+
+.carousel-control-next-icon::before {
+  content: '\203A';
+  font-size: 30px;
+  color: black;
+}
+
+.carousel-indicators [data-bs-target] {
+  background-color: grey !important;
+  width: 15px !important;
+  height: 15px !important;
+  border-radius: 50% !important;
+}
+
+.carousel-indicators .active {
+  background-color: black !important;
+}
+
+.minhas-series .card.h-100 {
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  width: 100%;
+  height: 100%;
+  height: 450px !important;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+  border: 0px solid rgba(255, 255, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.novas-series .card.h-100 {
+  border-radius: 30px;
+  border: 0px;
+}
+
+.minhas-series .card.h-100:hover,
+.card-pesquisa .card.h-100:hover {
+  transform: scale(1.05);
+}
+
+.caixa-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 40px;
+}
+
+.sobre-texto {
+  flex: 0 0 65%;
+  padding: 10px;
+}
+
+.aluna-detalhes {
+  flex: 0 0 30%;
+  text-align: left;
+  position: relative;
+}
+
+.foto-aluna {
+  display: block;
+  margin: 0 auto;
+  width: 150px;
+  border-radius: 30%;
+}
+
+.redes-sociais {
+  margin-top: 15px;
+}
+
+.redes-sociais a {
+  margin-right: 10px;
+}
+
+.redes-sociais a:last-child {
+  margin-right: 0;
+}
+
+.redes-sociais img {
+  width: 30px;
+  height: 30px;
+}
+
+h5 {
+  color: white;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover .card-overlay {
+  opacity: 1;
+}
+
+.card-title,
+.card-text {
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilos gerais */
+.caixa-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 40px;
+  flex-wrap: wrap; /* Adiciona flex-wrap para permitir que os itens se reorganizem em telas pequenas */
+}
+
+.sobre-texto {
+  flex: 0 0 65%;
+  padding: 10px;
+}
+
+.aluna-detalhes {
+  flex: 0 0 30%;
+  text-align: left;
+  position: relative;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+  .sobre-texto {
+      flex: 0 0 100%; /* O texto ocupa 100% da largura em telas menores */
+      margin-bottom: 20px; /* Espaçamento inferior para separar da seção aluna-detalhes */
+  }
+
+  .aluna-detalhes {
+      flex: 0 0 100%; /* A seção aluna-detalhes ocupa 100% da largura em telas menores */
+      text-align: center; /* Centralizar conteúdo no mobile */
+  }
+
+  .foto-aluna {
+      width: 120px; /* Reduz o tamanho da imagem da aluna em telas menores */
+  }
+}

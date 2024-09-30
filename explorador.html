@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorar Séries</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="explorador.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/iconaolado.png" type="image/x-icon">
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header class="cabecalho-exp">
+        <div class="logotipo-lateral">
+            <h1><a href="index.html">MovieVerse</a></h1>
+        </div>
+        <div class="pesquisa-container">
+            <input type="text" class="barra-pesquisa" placeholder="Busque séries pelo nome..." id="search-input">
+            <button class="button">Buscar</button>
+        </div>
+    </header>    
+    
+    <section class="explorer-section py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Filtros em um aside -->
+                <aside class="col-md-3 mb-5">
+                    <h5>Filtros</h5>
+                    <div class="mb-3">
+                        <select id="genre-filter" class="form-select form-select-lg">
+                            <option value="all">Gênero</option>
+                            <option value="action">Ação</option>
+                            <option value="comedy">Comédia</option>
+                            <option value="drama">Drama</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <select id="year-filter" class="form-select form-select-lg">
+                            <option value="all">Ano</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <select id="rating-filter" class="form-select form-select-lg">
+                            <option value="all">Classificação</option>
+                            <option value="5">5 Estrelas</option>
+                            <option value="4">4 Estrelas ou mais</option>
+                            <option value="3">3 Estrelas ou mais</option>
+                        </select>
+                    </div>
+                </aside>
+    
+                <!-- Bloco de Cards -->
+                <div class="card-container">
+                    <!-- Exemplo de Card de Série 1 -->
+                    <div class="card-pesquisa">
+                        <img src="https://sm.ign.com/ign_br/screenshot/default/butcher-clean-rgb_8snc.jpg" class="card-img-top" alt="Série 1">
+                        <div class="card-body">
+                            <h5 class="card-title">The Boys</h5>
+                            <p class="card-text">Ação, Aventura, Ficção Cintífica.</p>
+                        </div>
+                        <div class="botao">
+                            <a href="theboys.html" class="btn">Ver detalhes</a>
+                        </div>
+                    </div>
+    
+                    <!-- Exemplo de Card de Série 2 -->
+                    <div class="card-pesquisa">
+                        <img src="https://image.api.playstation.com/vulcan/ap/rnd/202206/0720/eEczyEMDd2BLa3dtkGJVE9Id.png" class="card-img-top" alt="Série 2">
+                        <div class="card-body">
+                            <h5 class="card-title">The Last Of Us</h5>
+                            <p class="card-text">Drama, Ação, Ficção Científica.</p>
+                        </div>
+                        <div class="botao">
+                            <a href="thelastofus.html" class="btn">Ver detalhes</a>
+                        </div>
+                    </div>
+    
+                    <!-- Exemplo de Card de Série 3 -->
+                    <div class="card-pesquisa">
+                        <img src="https://upload.wikimedia.org/wikipedia/pt/thumb/3/3b/The_Flash_Temporada_2_Poster.jpg/230px-The_Flash_Temporada_2_Poster.jpg" class="card-img-top" alt="Série 3">
+                        <div class="card-body">
+                            <h5 class="card-title">The Flash</h5>
+                            <p class="card-text">Ação, Super-herói, Ficção Científica.</p>
+                        </div>
+                        <div class="botao">
+                            <a href="theflash.html" class="btn">Ver detalhes</a>
+                        </div>
+                    </div>
+    
+                    <!-- Exemplo de Card de Série 4 -->
+                    <div class="card-pesquisa">
+                        <img src="https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2023/11/06/300628474-ae1a337e658f26226f4ceb74d5e9e1a7.png" class="card-img-top" alt="Série 4">
+                        <div class="card-body">
+                            <h5 class="card-title">Friends</h5>
+                            <p class="card-text">Comédia, sitcom, clássico.</p>
+                        </div>
+                        <div class="botao">
+                            <a href="friends.html" class="btn">Ver detalhes</a>
+                        </div>
+                    </div>
+    
+                    <!-- Exemplo de Card de Série 5 -->
+                    <div class="card-pesquisa">
+                        <img src="https://s2.glbimg.com/I-dh1xIpGIkgeg2A8RvAy0yzmfc=/s.glbimg.com/jo/g1/f/original/2014/11/14/gilmore_girls.jpg" class="card-img-top" alt="Série 5">
+                        <div class="card-body">
+                            <h5 class="card-title">Gilmore Girls</h5>
+                            <p class="card-text">Comédia, Drama, Romace.</p>
+                        </div>
+                        <div class="botao">
+                            <a href="gilmoregirls.html" class="btn">Ver detalhes</a>
+                        </div>
+                    </div>
+    
+                    <!-- Exemplo de Card de Série 6 -->
+                    <div class="card-pesquisa">
+                        <img src="https://resizing.flixster.com/PK6YodK5ubADLRjIr5wiyEGVYU4=/fit-in/352x330/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p185008_b_v10_ac.jpg" class="card-img-top" alt="Série 6">
+                        <div class="card-body">
+                            <h5 class="card-title">The Office</h5>
+                            <p class="card-text">Comédia, sitcom, clássico.</p>
+                        </div>
+                        <div class="botao">
+                            <a href="theoffice.html" class="btn">Ver detalhes</a>
+                        </div>
+                    </div>
+    
+                    <!-- Exemplo de Card de Série 7 -->
+                    <div class="card-pesquisa">
+                        <img src="https://www.infinitividades.com.br/wordpress/wp-content/uploads/2024/05/sugar1.jpg" class="card-img-top" alt="Série 7">
+                        <div class="card-body">
+                            <h5 class="card-title">Sugar</h5>
+                            <p class="card-text">História de detetive, Mistério, Drama.</p>
+                        </div>
+                        <div class="botao">
+                            <a href="sugar.html" class="btn">Ver detalhes</a>
+                        </div>
+                    </div>
+    
+                    <!-- Exemplo de Card de Série 8 -->
+                    <div class="card-pesquisa">
+                        <img src="https://conteudo.imguol.com.br/c/splash/99/2024/06/20/serie-pinguim-chega-a-max-em-setembro-de-2024-1718894509658_v2_750x1.jpg" class="card-img-top" alt="Série 8">
+                        <div class="card-body">
+                            <h5 class="card-title">Pinguim</h5>
+                            <p class="card-text">Ação, Aventura, Drama.</p>
+                        </div>
+                        <div class="botao">
+                            <a href="pinguim.html" class="btn">Ver detalhes</a>
+                        </div>
+                    </div>
+    
+                    <!-- Exemplo de Card de Série 9 -->
+                    <div class="card-pesquisa">
+                        <img src="https://cdn.itrwrestling.com/app/uploads/content/1727182924146773703/Mr-McMahon-Landscape-Poster.jpg" class="card-img-top" alt="Série 9">
+                        <div class="card-body">
+                            <h5 class="card-title">Mr. McMahon</h5>
+                            <p class="card-text">Documentário, Ação, Aventura.</p>
+                        </div>
+                        <div class="botao">
+                            <a href="mrmcmahon.html" class="btn">Ver detalhes</a>
+                        </div>
+                    </div>
+    
+                    <!-- Exemplo de Card de Série 10 -->
+            </div>
+        </div>
+    </section>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

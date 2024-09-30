@@ -1,0 +1,273 @@
+hr {
+    height: 3px;
+    background-color: #B0B2A1;
+    border: none;
+}
+
+.cabecalho-exp {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    margin: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+}
+
+.logotipo-lateral {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+}
+/* Contêiner para organizar as cards em colunas lado a lado */
+.cards-elenco {
+    display: flex; /* Ativa o Flexbox */
+    flex-wrap: wrap; /* Permite que os itens passem para a próxima linha se necessário */
+    justify-content: space-between; /* Distribui espaço entre os cards */
+    padding: 10px; /* Espaçamento interno */
+    margin: 0 auto; /* Centraliza o contêiner na página */
+}
+
+/* Estilo para os cards */
+.cards-elenco .card.h-100 {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s ease;
+    margin: 10px;
+    box-sizing: border-box;
+    /* Ajusta a largura para caber 3 cards por linha, com margens */
+}
+
+.cards-elenco .card.h-100:hover {
+    transform: scale(1.05); /* Efeito de hover nos cards */
+}
+
+.card-pesquisa {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    height: 400px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s ease;
+    width: calc(33.33% - 20px);
+    margin: 10px;
+    box-sizing: border-box;
+}
+
+.card-img-top {
+    border-radius: 30px;
+}
+.btn {
+    border-radius: 30px;
+}
+
+.card-pesquisa:hover {
+    transform: scale(1.05);
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+    margin: 0 auto;
+    width: 80%;
+}
+
+.barra-pesquisa, .form-select-lg {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: white;
+}
+
+.pesquisa-container {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.barra-pesquisa {
+    flex-grow: 1;
+    padding: 15px 30px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50px;
+    color: white;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+    margin-right: 10px;
+}
+
+.barra-pesquisa:focus {
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.button {
+    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+h5 {
+    color: white;
+}
+
+.btn:hover {
+    background-color: grey;
+}
+
+aside {
+    width: 30%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    padding: 20px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.logotipo-lateral h1 a {
+    color: white; /* Define a cor da fonte como branca */
+    text-decoration: none; /* Remove o sublinhado do link */
+    font-size: 2rem; /* Ajuste o tamanho da fonte conforme necessário */
+    transition: color 0.3s; /* Adiciona uma transição suave para a cor ao passar o mouse */
+}
+
+.logotipo-lateral h1 a:hover {
+    color: #f0f0f0; /* Cor do texto ao passar o mouse */
+}
+
+.card-container {
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    padding: 10px;
+    width: 70%; 
+}
+
+.form-select-lg {
+    background: rgba(255, 255, 255, 0.2); 
+    border: 1px solid rgba(255, 255, 255, 0.5); 
+    color: white; 
+    border-radius: 30px; 
+    padding: 10px 15px; 
+    outline: none; 
+    transition: all 0.3s ease; 
+    width: 100%; 
+}
+
+.form-select-lg:hover, 
+.form-select-lg:focus {
+    background-color: rgba(255, 255, 255, 0.3); 
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); 
+}
+
+/* Ajustes para dispositivos móveis (máx. 768px - tablets) */
+@media (max-width: 768px) {
+    /* Ajustes nas cards de elenco */
+    .card-pesquisa {
+        width: calc(50% - 20px); /* Cards ocupam metade da largura */
+    }
+
+    .card-container {
+        width: 90%; /* Reduz o espaço do contêiner */
+    }
+
+    /* Ajustes no cabeçalho e logo */
+    .cabecalho-exp {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .logotipo-lateral {
+        justify-content: center; /* Centraliza o logotipo */
+        margin-bottom: 10px;
+    }
+
+    /* Ajustes nos textos */
+    h1, h2, h4, h5 {
+        font-size: 1.2rem; /* Diminui o tamanho dos textos */
+    }
+
+    /* Ajustes nos botões */
+    .button {
+        padding: 8px 15px; /* Reduz o padding dos botões */
+    }
+
+    .barra-pesquisa {
+        padding: 10px 20px; /* Diminui o padding */
+    }
+}
+
+/* Ajustes para telas muito pequenas (máx. 480px - celulares) */
+@media (max-width: 480px) {
+    /* Cards de elenco ocupam 100% da largura */
+    .card-pesquisa {
+        width: 100%; /* Cards ocupam 100% da largura em telas muito pequenas */
+        margin: 10px 0; /* Ajusta as margens */
+    }
+
+    .card-container {
+        width: 100%; /* Contêiner ocupa 100% da tela */
+        padding: 0; /* Remove padding extra */
+    }
+
+    /* Ajuste para o cabeçalho */
+    .cabecalho-exp {
+        padding: 10px; /* Reduz o padding do cabeçalho */
+    }
+
+    .logotipo-lateral h1 {
+        font-size: 1.5rem; /* Ajusta o tamanho da fonte */
+    }
+
+    /* Ajustes no formulário de pesquisa */
+    .barra-pesquisa {
+        font-size: 14px; /* Diminui o tamanho da fonte */
+        padding: 10px; /* Ajusta o padding */
+    }
+
+    /* Ajuste nos botões */
+    .button {
+        padding: 8px 12px; /* Botões menores */
+    }
+
+    /* Ajustes nas fontes */
+    h1, h2, h4, h5 {
+        font-size: 1rem; /* Fontes menores */
+    }
+
+    /* Outros ajustes necessários para responsividade */
+    aside {
+        width: 100%; /* Barra lateral ocupa 100% da largura */
+        margin: 10px 0; /* Adiciona espaçamento superior e inferior */
+    }
+}
