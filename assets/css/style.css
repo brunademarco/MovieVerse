@@ -71,50 +71,46 @@ hr {
   background-color: #B0B2A1;
 }
 
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  background-image: none !important;
-  border-radius: 0 !important;
-  width: 30px !important;
-  height: 30px !important;
-  background-color: transparent !important;
-}
-
-.carousel-caption h5,
-.carousel-caption p {
-  background: none !important;
-  color: inherit;
-  padding: 0;
-  margin: 0;
-}
-
+/* Adiciona borda arredondada no contêiner do carrossel */
 .carousel-inner {
   border-radius: 30px;
   overflow: hidden;
+  max-height: 700px;
 }
 
+.carousel-inner img {
+  width: 100%;  /* Faz as imagens ocuparem toda a largura do carrossel */
+  height: auto;
+  object-fit: contain; /* Ajusta a altura automaticamente para manter a proporção */ /* Faz a imagem cobrir toda a área sem distorcer */
+}
+
+/* Aplica borda arredondada nas imagens */
 .carousel-item img {
   border-radius: 15px;
 }
 
+/* Estilo para a legenda do carrossel */
 .carousel-caption {
   color: white !important;
   padding: 20px !important;
   border-radius: 10px !important;
 }
 
+/* Estilo do ícone de navegação anterior */
 .carousel-control-prev-icon::before {
-  content: '\2039';
+  content: '\2039'; /* Código Unicode para a seta para a esquerda */
   font-size: 30px;
   color: black;
 }
 
+/* Estilo do ícone de navegação seguinte */
 .carousel-control-next-icon::before {
-  content: '\203A';
+  content: '\203A'; /* Código Unicode para a seta para a direita */
   font-size: 30px;
   color: black;
 }
 
+/* Estilo dos indicadores (botões de navegação dos slides) */
 .carousel-indicators [data-bs-target] {
   background-color: grey !important;
   width: 15px !important;
@@ -122,9 +118,11 @@ hr {
   border-radius: 50% !important;
 }
 
+/* Estilo do indicador ativo */
 .carousel-indicators .active {
   background-color: black !important;
 }
+
 
 .minhas-series .card.h-100 {
   background: rgba(255, 255, 255, 0.1) !important;

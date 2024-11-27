@@ -1,0 +1,36 @@
+{
+    "autor": {
+        "id": "1",
+        "nome": "Bruna De Marco",
+        "avatar": "",
+        "curso": "Ciência da Computação",
+        "turma": "Manhã",
+        "biografia": "Sou estudante do primeiro período de ciência da computação na PUC Minas. Esta é minha primeira aplicação web e estou aberta a sugestões de melhorias e críticas construtivas, desejo a todos os visitantes do site uma ótima experiência.",
+        "redes":  {
+            "linkedin": "https://www.linkedin.com/in/bruna-noely-68a70925a/",
+            "github": "https://github.com/brunanoely"
+        }
+    },
+
+    "favoritos": [
+        {
+            "id": 1,
+            "nome": "Série Favorita 1",
+            "imagem": "url-imagem",
+            "descricao": "Descrição breve"
+        }
+    ],
+    
+    "seriesPreferidas": [
+        {
+          "id": 1,
+          "idSerie": 12345,
+          "idUsuario": 1
+        },
+        {
+          "id": 2,
+          "idSerie": 67890,
+          "idUsuario": 1
+        }
+      ]
+}
