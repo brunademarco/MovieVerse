@@ -3,9 +3,8 @@ const url = "http://localhost:3000";
 const API_KEY = '0447ee4eb499ae455b3283aeee4541ed';
 const BASE_URL = 'https://api.themoviedb.org/3';
 const IMG_BASE_URL = 'https://image.tmdb.org/t/p/w1280/';
-const URL_POPULAR_SERIES = `${BASE_URL}/tv/popular?api_key=${API_KEY}&language=pt-BR`;
-const URL_NEW_SERIES = `${BASE_URL}/tv/latest?api_key=${API_KEY}&language=pt-BR`;
-
+const URL_POPULAR_SERIES = `https://api.themoviedb.org/3/tv/popular?api_key=${API_KEY}&language=pt-BR&page=1`;
+const URL_NEW_SERIES = `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&sort_by=first_air_date.desc&language=pt-BR&page=1`;
 
 // Selecionar os elementos do carrossel
 const carouselInner = document.querySelector('.carousel-inner');
@@ -51,30 +50,44 @@ fetch(URL_NEW_SERIES)
         return response.json();
     })
     .then(data => {
-        const series = data.results; // Série nova
+        if (!data || !data.results) {
+            throw new Error('Dados inválidos ou série não encontrada');
+        }
+        const series = data.results; // Lista de séries novas
         const cardsContainer = document.getElementById('series-cards');
         
         series.forEach(serie => {
-            const card = document.createElement('div');
-            card.classList.add('col-md-4');
-            card.innerHTML = `
-                <div class="card">
+            // Ignora séries sem imagens
+            if (!serie.poster_path) return;
+
+            // Criação do elemento de coluna
+            const col = document.createElement('div');
+            col.classList.add('col'); // Segue as classes do Bootstrap para colunas
+
+            // Conteúdo do cartão
+            col.innerHTML = `
+                <div class="card h-100">
                     <img src="https://image.tmdb.org/t/p/w500${serie.poster_path}" class="card-img-top" alt="${serie.name}">
                     <div class="card-body">
                         <h5 class="card-title">${serie.name}</h5>
-                        <p class="card-text">${serie.overview}</p>
-                        <a href="detalhes.html?id=${serie.id}" class="btn btn-primary">Ver Detalhes</a>
+                        <p class="card-text text-truncate" style="max-height: 4rem; overflow: hidden;">
+                            ${serie.overview || "Descrição indisponível."}
+                        </p>
+                        <a href="../public/detalhesdaserie.html?id=${serie.id}" class="btn btn-primary">Ver Detalhes</a>
                     </div>
                 </div>
             `;
-            cardsContainer.appendChild(card);
+
+            // Adiciona o cartão ao container de cartões
+            cardsContainer.appendChild(col);
         });
     })
     .catch(error => console.error('Erro:', error));
+
+// Buscar dados do autor
 fetch(`${url}/autor`)
     .then(response => response.json())
     .then(data => {
-
         document.getElementById("autor-nome").textContent = data.nome;
         document.getElementById("autor-avatar").src = data.avatar;
         document.getElementById("autor-curso").textContent = `${data.curso}`;
@@ -87,12 +100,12 @@ fetch(`${url}/autor`)
     })
     .catch(error => console.error("Erro ao buscar dados do autor:", error));
 
+// Buscar favoritos
 fetch(`${url}/favoritos`)
     .then(response => response.json())
     .then(data => {
         const favoritosDiv = document.getElementById("favoritos");
         data.forEach(favorito => {
-            // Criar elementos para cada favorito
             const favoritoDiv = document.createElement("div");
             favoritoDiv.innerHTML = `
                 <h2>${favorito.nome}</h2>

@@ -1,103 +1,23 @@
-body {
-  background-image: url("https://i.pinimg.com/564x/54/f0/19/54f019352e991d95398f6b5d6dca2dde.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  backdrop-filter: blur(50px);
-  margin: 0;
-  padding: 0;
-  width: 100%;
+.carousel {
+  max-height: 700px; /* Define a altura máxima do carrossel */
+  overflow: hidden; /* Garante que o conteúdo que exceder a altura seja escondido */
 }
 
-p {
-  color:white;
+.carousel img {
+  height: 100%; /* Assegura que a imagem ocupe toda a altura do contêiner */
+  object-fit: cover;
+  object-fit: contain; /* Ajusta o conteúdo da imagem para não distorcer */
 }
 
-main {
-  margin: 20px;
-}
-
-h4 {
-  color: white;
-}
-
-h2 {
-  color: #D9D9D9 !important;
-}
-
-h5 {
-  color: #D9D9D9 !important;
-
-}
-
-h3 {
-  color: #A6A6A6 !important;
-}
-
-hr {
-  height: 3px;
-  background-color: #B0B2A1;
-  border: none;
-}
-
-.caixa-menu-principal {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px;
-  margin: 10px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 30px;
-}
-
-.logo h1 {
-  color: white;
-  margin: 0;
-  font-size: 2em;
-}
-
-.explorador a {
-  display: inline-block;
-  padding: 20px 30px;
-  background-color: #D1D4B9;
-  color: #333;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 50px;
-  transition: background-color 0.3s ease;
-}
-
-.explorador a:hover {
-  background-color: #B0B2A1;
-}
-
-/* Adiciona borda arredondada no contêiner do carrossel */
-.carousel-inner {
+.novas-series {
   border-radius: 30px;
   overflow: hidden;
   max-height: 700px;
-}
-
-.carousel-inner img {
-  width: 100%;  /* Faz as imagens ocuparem toda a largura do carrossel */
-  height: auto;
-  object-fit: contain; /* Ajusta a altura automaticamente para manter a proporção */ /* Faz a imagem cobrir toda a área sem distorcer */
-}
-
-/* Aplica borda arredondada nas imagens */
-.carousel-item img {
-  border-radius: 15px;
-}
-
-/* Estilo para a legenda do carrossel */
-.carousel-caption {
-  color: white !important;
-  padding: 20px !important;
-  border-radius: 10px !important;
+  padding: 20px;
 }
 
 /* Estilo do ícone de navegação anterior */
-.carousel-control-prev-icon::before {
+.card-series::before {
   content: '\2039'; /* Código Unicode para a seta para a esquerda */
   font-size: 30px;
   color: black;
@@ -123,6 +43,18 @@ hr {
   background-color: black !important;
 }
 
+.col-md-4 {
+  background: rgba(255, 255, 255, 0.1) ;
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  max-height: 450px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+  border: 0px solid rgba(255, 255, 255, 0.3);
+
+  transition: transform 0.3s ease;
+
+}
 
 .minhas-series .card.h-100 {
   background: rgba(255, 255, 255, 0.1) !important;
@@ -138,7 +70,7 @@ hr {
   transition: transform 0.3s ease;
 }
 
-.novas-series .card.h-100 {
+.series-cards .card.h-100 {
   border-radius: 30px;
   border: 0px;
 }
@@ -194,6 +126,12 @@ h5 {
   color: white;
 }
 
+
+.novas-series {
+  border-radius: 30px;
+  overflow: hidden;
+  max-height: 600px;
+}
 .card {
   position: relative;
   overflow: hidden;
@@ -253,6 +191,10 @@ h5 {
   position: relative;
 }
 
+#card {
+
+  border-radius: 40px;
+}
 /* Responsividade para telas menores */
 @media (max-width: 768px) {
   .sobre-texto {
