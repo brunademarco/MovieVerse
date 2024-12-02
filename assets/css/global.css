@@ -7,6 +7,23 @@ body {
     width: 100%;
   }
 
+hr {
+    height: 3px;
+    background-color: #B0B2A1;
+    border: none;
+}
+
+.cabecalho-exp {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    margin: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+}
+
+
 main {
     margin: 20px;
 }
@@ -89,4 +106,22 @@ main {
     font-style: italic;
     font-size: 0.9em;
     color: #bbb;
+}
+
+.logotipo-lateral h1 a {
+    color: white; 
+    text-decoration: none; 
+    font-size: 2rem; 
+    transition: color 0.3s; 
+}
+
+.logotipo-lateral h1 a:hover {
+    color: #f0f0f0; 
+}
+
+.logotipo-lateral {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
 }
