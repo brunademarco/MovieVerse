@@ -116,3 +116,41 @@ fetch(`${url}/favoritos`)
         });
     })
     .catch(error => console.error("Erro ao buscar favoritos:", error));
+
+    // URL do JSON Server
+const URL_FAVORITE_SERIES = "http://localhost:3000/favoritos";
+
+// Seleciona o contêiner de séries favoritas
+fetch('http://localhost:3000/favoritos')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Erro ao carregar favoritos');
+    }
+    return response.json();
+  })
+  .then(data => {
+    const container = document.getElementById('favorite-series-container');
+    container.innerHTML = ""; // Limpa o container antes de inserir os dados
+
+    // Cria os cards dinamicamente
+    data.forEach(item => {
+      const card = `
+        <div class="col">
+        
+          <div class="card h-100">
+           
+            <img src="${item.imagem}" alt="${item.nome}" class="card-img-top"
+            ><a href="detalhesdaserie.html?id=${item.id}">
+            <div class="card-overlay">
+              <h5 class="card-title">${item.nome || "Nome não disponível"}</h5>
+              <p class="card-text">${item.descricao || "Descrição não disponível"}</p>
+            </div>
+            </a>
+        </div>
+    </div>
+      `;
+      container.innerHTML += card;
+    });
+  })
+  .catch(error => console.error("Erro ao carregar favoritos:", error));
+

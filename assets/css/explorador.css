@@ -4,6 +4,22 @@ hr {
     border: none;
 }
 
+a.btn.btn-primary {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 15px 30px;
+    text-decoration: none;
+    padding: 15px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn.btn-primary:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
 .cabecalho-exp {
     display: flex;
     align-items: center;
@@ -21,26 +37,38 @@ hr {
     width: 100%;
 }
 
-.card-pesquisa {
-    background: rgba(255, 255, 255, 0.1) !important;
-    backdrop-filter: blur(10px);
-    border-radius: 30px;
+.card-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
-    height: 400px;
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    transition: transform 0.3s ease;
-    width: calc(33.33% - 20px); /* Removido o !important */
-    margin: 10px;
-    box-sizing: border-box;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+    width: 100%; 
+    max-width: 100%; 
 }
 
 .card-img-top {
+    width: 300px;
+    height: auto;
     border-radius: 30px;
+}
+
+.card-body {
+    text-align: center;
+}
+
+.card.card-pesquisa {
+    background: rgba(255, 255, 255, 0.1) ;
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    height: auto;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s ease;
+    margin: 10px;
+    box-sizing: border-box;
 }
 
 .btn {
@@ -51,15 +79,6 @@ hr {
     transform: scale(1.05);
 }
 
-.card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 10px;
-    margin: 0 auto;
-    width: 80%;
-}
-
 .barra-pesquisa, .form-select-lg {
     background: rgba(255, 255, 255, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.5);
@@ -67,7 +86,6 @@ hr {
 }
 
 .pesquisa-container {
-    background: rgba(255, 255, 255, 0.1);
     border-radius: 30px;
     display: flex;
     align-items: center;
@@ -106,6 +124,7 @@ hr {
 .button:hover {
     background-color: rgba(255, 255, 255, 0.3);
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
 }
 
 h5 {
@@ -114,16 +133,6 @@ h5 {
 
 .btn:hover {
     background-color: grey;
-}
-
-aside {
-    width: 30%;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 30px;
-    padding: 20px;
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .logotipo-lateral h1 a {
@@ -137,77 +146,5 @@ aside {
     color: #f0f0f0;
 }
 
-.card-container {
-    display: flex; 
-    flex-wrap: wrap; 
-    justify-content: center; 
-    padding: 10px;
-    width: 70%; 
-}
 
-.form-select-lg {
-    background: rgba(255, 255, 255, 0.2); 
-    border: 1px solid rgba(255, 255, 255, 0.5); 
-    color: white; 
-    border-radius: 30px; 
-    padding: 10px 15px; 
-    outline: none; 
-    transition: all 0.3s ease; 
-    width: 100%; 
-}
 
-.form-select-lg:hover, 
-.form-select-lg:focus {
-    background-color: rgba(255, 255, 255, 0.3); 
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); 
-}
-
-/* Media Queries para Responsividade */
-
-/* Para telas médias (tablets) */
-@media (max-width: 1024px) {
-    .card-pesquisa {
-        width: calc(50% - 20px); /* Cards ocupam metade da largura */
-    }
-
-    aside {
-        width: 100%; /* Barra lateral ocupa 100% da largura */
-        margin-bottom: 20px;
-    }
-}
-
-/* Para telas pequenas (smartphones) */
-@media (max-width: 768px) {
-    .card-pesquisa {
-        width: 100%; /* Cards ocupam toda a largura */
-        margin: 10px 0;
-    }
-
-    .cabecalho-exp {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .logotipo-lateral {
-        margin-bottom: 10px;
-    }
-
-    .pesquisa-container {
-        flex-direction: column;
-    }
-
-    .barra-pesquisa {
-        margin-right: 0;
-        margin-bottom: 10px;
-        width: 100%;
-    }
-
-    .button {
-        width: 100%;
-    }
-
-    aside {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-}
