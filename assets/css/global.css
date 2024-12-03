@@ -28,25 +28,17 @@ hr {
 }
 
 main {
-    margin: 20px;
+  margin: 20px;
 }
 
   p {
     color:white;
   }
 
-  h4 {
-    color: white;
+  h1, h2, h3, h4, h5, h6 {
+    color: #D9D9D9; 
   }
   
-  h2 {
-    color: #D9D9D9;
-  }
-  
-  h5 {
-    color: #D9D9D9;
-  
-  }
   
   h3 {
     color: #A6A6A6;
