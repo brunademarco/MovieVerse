@@ -64,3 +64,38 @@ async function carregarDetalhesSerie() {
 
 // Carregar os detalhes da série ao carregar a página
 window.onload = carregarDetalhesSerie;
+
+document.getElementById('favoritarBtn').addEventListener('click', function() {
+    const serieId = this.getAttribute('data-id');  // Pega o ID da série a partir do atributo data-id
+    const serieNome = 'Nome da Série'; // Nome da série, isso pode ser dinamicamente extraído
+    const serieDescricao = 'Descrição da Série'; // Descrição da série, também extraída dinamicamente
+    const serieImagem = 'URL da imagem'; // A URL da imagem da série, extraída dinamicamente
+    
+    const novoFavorito = {
+      id: serieId,
+      nome: serieNome,
+      descricao: serieDescricao,
+      imagem: serieImagem
+    };
+  
+    // Envia a série para o servidor (json-server)
+    fetch('http://localhost:3000/favoritos', {
+      method: 'POST',  // Envia como uma requisição POST
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(novoFavorito)  // Envia os dados da série como JSON
+    })
+    .then(response => response.json())
+    .then(data => {
+      alert('Série adicionada aos favoritos!');
+    })
+    .catch(error => {
+      console.error('Erro ao adicionar aos favoritos:', error);
+      alert('Houve um erro ao adicionar a série aos favoritos.');
+    });
+  });
+  
+document.getElementById('favorite-button').addEventListener('click', function() {
+    this.classList.toggle('favoritado'); 
+});

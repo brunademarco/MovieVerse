@@ -121,13 +121,13 @@ fetch(`${url}/favoritos`)
     // URL do JSON Server
 const URL_FAVORITE_SERIES = "http://localhost:3000/favoritos";
 
-// Seleciona o contêiner de séries favoritas
+// Função para carregar os favoritos da API
 fetch('http://localhost:3000/favoritos')
   .then(response => {
     if (!response.ok) {
       throw new Error('Erro ao carregar favoritos');
     }
-    return response.json();
+    return response.json();  // Converte a resposta para JSON
   })
   .then(data => {
     const container = document.getElementById('favorite-series-container');
@@ -135,22 +135,21 @@ fetch('http://localhost:3000/favoritos')
 
     // Cria os cards dinamicamente
     data.forEach(item => {
+      // Cria o card para cada série favorita
       const card = `
         <div class="col">
-        
           <div class="card h-100">
-            <img src="${item.imagem}" alt="${item.nome}" class="card-img-top"
-            ><a href="detalhesdaserie.html?id=${item.id}">
-            <div class="card-overlay">
-              <h5 class="card-title">${item.nome || "Nome não disponível"}</h5>
-              <p class="card-text">${item.descricao || "Descrição não disponível"}</p>
-            </div>
+            <img src="${item.imagem}" alt="${item.nome}" class="card-img-top" />
+            <a href="detalhesdaserie.html?id=${item.id}">
+              <div class="card-overlay">
+                <h5 class="card-title">${item.nome || "Nome não disponível"}</h5>
+                <p class="card-text">${item.descricao || "Descrição não disponível"}</p>
+              </div>
             </a>
+          </div>
         </div>
-    </div>
       `;
-      container.innerHTML += card;
+      container.innerHTML += card; // Adiciona o card ao contêiner
     });
   })
   .catch(error => console.error("Erro ao carregar favoritos:", error));
-
