@@ -16,7 +16,6 @@ async function carregarDetalhesSerie() {
 
     const url = `https://api.themoviedb.org/3/tv/${serieId}?api_key=${apiKey}&language=pt-BR`;
     const urlElenco = `https://api.themoviedb.org/3/tv/${serieId}/credits?api_key=${apiKey}&language=pt-BR`;
-    const urlTemporadas = `https://api.themoviedb.org/3/tv/${serieId}/seasons?api_key=${apiKey}&language=pt-BR`;
 
     try {
         // Carregar detalhes da série
@@ -30,36 +29,32 @@ async function carregarDetalhesSerie() {
         document.getElementById('data-lancamento').textContent = `Data de lançamento: ${data.first_air_date}`;
         document.getElementById('descricao').textContent = data.overview;
 
+        // Preencher informações de temporadas e episódios
+        const temporadas = data.seasons || [];
+        document.getElementById('temporadas').textContent = `${temporadas.length} Temporada(s)`;
+        document.getElementById('episodios').textContent = `${temporadas.reduce((acc, season) => acc + (season.episode_count || 0), 0)} Episódio(s)`;
+
         // Carregar elenco
         const elencoResponse = await fetch(urlElenco);
         const elencoData = await elencoResponse.json();
         const elencoContainer = document.getElementById('cards-elenco');
 
-        elencoContainer.innerHTML = ''; // Limpar qualquer conteúdo antigo
+        elencoContainer.innerHTML = ''; 
 
-        // Preencher elenco com 6 membros no máximo
-        elencoData.cast.slice(0, 6).forEach(ator => {
+        elencoData.cast.slice(0, 5).forEach(ator => {
             const cardElenco = document.createElement('div');
             cardElenco.classList.add('col');
             cardElenco.innerHTML = `
                 <div class="card h-100">
-                    <img src="https://image.tmdb.org/t/p/w500${ator.profile_path}" class="card-img-top" alt="${ator.name}">
+                    <img src="https://image.tmdb.org/t/p/w500${ator.profile_path || ''}" class="card-img-top" alt="${ator.name}">
                     <div class="card-body">
                         <h5 class="card-title">${ator.name}</h5>
-                        <p class="card-text">${ator.character}</p>
+                        <p class="card-text">${ator.character || 'Personagem não informado'}</p>
                     </div>
                 </div>
             `;
             elencoContainer.appendChild(cardElenco);
         });
-
-        // Carregar informações de temporadas e episódios
-        const temporadasResponse = await fetch(urlTemporadas);
-        const temporadasData = await temporadasResponse.json();
-
-        document.getElementById('temporadas').textContent = `${temporadasData.length} Temporada(s)`;
-        document.getElementById('episodios').textContent = temporadasData.reduce((acc, season) => acc + season.episode_count, 0) + ' Episódio(s)';
-        document.getElementById('resumo').textContent = data.overview; // Resumo geral
 
     } catch (error) {
         console.error("Erro ao carregar os dados da série:", error);
