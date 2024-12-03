@@ -1,3 +1,4 @@
+
 const apiKey = '0447ee4eb499ae455b3283aeee4541ed'; // Substitua pela sua chave da API do The Movie DB
 
 // Função para pegar o ID da série da URL

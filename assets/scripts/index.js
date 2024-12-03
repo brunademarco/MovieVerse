@@ -41,7 +41,7 @@ fetch(URL_POPULAR_SERIES)
     })
     .catch(error => console.error('Erro ao carregar séries:', error));
 
-// Função para carregar as séries novas
+
 fetch(URL_NEW_SERIES)
     .then(response => {
         if (!response.ok) {
@@ -53,8 +53,9 @@ fetch(URL_NEW_SERIES)
         if (!data || !data.results) {
             throw new Error('Dados inválidos ou série não encontrada');
         }
-        const series = data.results; // Lista de séries novas
+        const series = data.results.slice(0, 5); // Lista de séries novas
         const cardsContainer = document.getElementById('series-cards');
+        cardsContainer.innerHTML = ''; 
         
         series.forEach(serie => {
             // Ignora séries sem imagens
@@ -138,7 +139,6 @@ fetch('http://localhost:3000/favoritos')
         <div class="col">
         
           <div class="card h-100">
-           
             <img src="${item.imagem}" alt="${item.nome}" class="card-img-top"
             ><a href="detalhesdaserie.html?id=${item.id}">
             <div class="card-overlay">

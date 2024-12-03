@@ -36,20 +36,6 @@
   background-color: black !important;
 }
 
-.novas-series .card.h-100 {
-  background: rgba(255, 255, 255, 0.1) !important;
-  backdrop-filter: blur(10px);
-  border-radius: 30px;
-  width: 100%;
-  height: 100%;
-  height: 450px;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
-  border: 0px solid rgba(255, 255, 255, 0.3);
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-}
-
 .minhas-series .card.h-100 {
   background: rgba(255, 255, 255, 0.1) !important;
   backdrop-filter: blur(10px);
@@ -64,13 +50,14 @@
   transition: transform 0.3s ease;
 }
 
-.series-cards .card.h-100 {
+.series-cards .card.h-100, .novas-series .card-h-100 {
   border-radius: 30px;
   border: 0px;
 }
 
 .minhas-series .card.h-100:hover,
-.card-pesquisa .card.h-100:hover {
+.card-pesquisa .card.h-100:hover, 
+.novas-series .card-h-100:hover {
   transform: scale(1.05);
 }
 
@@ -120,12 +107,6 @@ h5 {
   color: white;
 }
 
-
-.novas-series {
-  border-radius: 30px;
-  overflow: hidden;
-  max-height: 600px;
-}
 .card {
   position: relative;
   overflow: hidden;
@@ -138,7 +119,7 @@ h5 {
   object-fit: cover;
 }
 
-.card-overlay {
+.card-overlay, .card-body {
   position: absolute;
   top: 0;
   left: 0;
@@ -155,7 +136,7 @@ h5 {
   transition: opacity 0.3s ease;
 }
 
-.card:hover .card-overlay {
+.card:hover .card-overlay, .card:hover .card-body{
   opacity: 1;
 }
 
@@ -165,13 +146,12 @@ h5 {
   padding: 0;
 }
 
-/* Estilos gerais */
 .caixa-info {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   margin: 40px;
-  flex-wrap: wrap; /* Adiciona flex-wrap para permitir que os itens se reorganizem em telas pequenas */
+  flex-wrap: wrap; 
 }
 
 .sobre-texto {
@@ -188,4 +168,28 @@ h5 {
 #card {
 
   border-radius: 40px;
+}
+
+
+h5.card-title {
+  color: #d9d9d9;
+}
+
+
+.novas-series .h-100 {
+  height: 500px !important;
+  
+}
+.novas-series .card.h-100 {
+  width: 600px;
+  margin: 0;
+  border-radius: 40px;
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+  border: 0px solid rgba(255, 255, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
 }
