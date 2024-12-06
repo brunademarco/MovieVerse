@@ -1,29 +1,46 @@
 .carousel {
- /* Define a altura máxima do carrossel */
-  overflow: hidden; /* Garante que o conteúdo que exceder a altura seja escondido */
+  overflow: hidden; 
+}
+
+#carouselExampleCaptions {
+  max-width: 1800px; 
+  height: 800px; 
+  margin: 0 auto;  
+  border-radius: 30px; 
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 20px 30px;
+  background-color: #D1D4B9;
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 50px;
+  transition: background-color 0.3s ease;
+}
+
+img.d-blok.w-100 {
+  width: 100%; 
+  height: 100%;  
+}
+
+#carouselExampleCaptions .carousel-inner {
+  height: 100%; 
+}
+
+#carouselExampleCaptions .carousel-inner img {
+  width: 100%; 
+  height: 100%;     
+  object-fit: cover; 
 }
 
 .carousel img {
-  height: 100%; /* Assegura que a imagem ocupe toda a altura do contêiner */
+  height: 100%; 
   object-fit: cover;
-  object-fit: contain; /* Ajusta o conteúdo da imagem para não distorcer */
+  object-fit: contain; 
 }
 
-/* Estilo do ícone de navegação anterior */
-.card-series::before {
-  content: '\2039'; /* Código Unicode para a seta para a esquerda */
-  font-size: 30px;
-  color: black;
-}
-
-/* Estilo do ícone de navegação seguinte */
-.carousel-control-next-icon::before {
-  content: '\203A'; /* Código Unicode para a seta para a direita */
-  font-size: 30px;
-  color: black;
-}
-
-/* Estilo dos indicadores (botões de navegação dos slides) */
 .carousel-indicators [data-bs-target] {
   background-color: grey !important;
   width: 15px !important;
@@ -31,7 +48,6 @@
   border-radius: 50% !important;
 }
 
-/* Estilo do indicador ativo */
 .carousel-indicators .active {
   background-color: black !important;
 }

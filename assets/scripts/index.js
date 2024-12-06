@@ -6,11 +6,9 @@ const IMG_BASE_URL = 'https://image.tmdb.org/t/p/w1280/';
 const URL_POPULAR_SERIES = `https://api.themoviedb.org/3/tv/popular?api_key=${API_KEY}&language=pt-BR&page=1`;
 const URL_NEW_SERIES = `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&sort_by=first_air_date.desc&language=pt-BR&page=1`;
 
-// Selecionar os elementos do carrossel
 const carouselInner = document.querySelector('.carousel-inner');
 const indicators = document.querySelector('.carousel-indicators');
 
-// Buscar séries populares e adicionar ao carrossel
 fetch(URL_POPULAR_SERIES)
     .then(response => {
         if (!response.ok) throw new Error('Erro ao buscar dados da API');
@@ -20,7 +18,6 @@ fetch(URL_POPULAR_SERIES)
         data.results.forEach((serie, index) => {
             const isActive = index === 0 ? 'active' : '';
 
-            // Criar os slides
             const slide = `
                 <div class="carousel-item ${isActive}">
                     <img src="${IMG_BASE_URL}${serie.backdrop_path}" class="d-block w-100" alt="${serie.name}">
@@ -32,7 +29,6 @@ fetch(URL_POPULAR_SERIES)
             `;
             carouselInner.innerHTML += slide;
 
-            // Criar os indicadores
             const indicator = `
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="${index}" class="${isActive}" aria-label="Slide ${index + 1}"></button>
             `;
@@ -53,39 +49,37 @@ fetch(URL_NEW_SERIES)
         if (!data || !data.results) {
             throw new Error('Dados inválidos ou série não encontrada');
         }
-        const series = data.results.slice(0, 5); // Lista de séries novas
+        const series = data.results.slice(0, 5); 
         const cardsContainer = document.getElementById('series-cards');
         cardsContainer.innerHTML = ''; 
         
         series.forEach(serie => {
-            // Ignora séries sem imagens
+            
             if (!serie.poster_path) return;
 
-            // Criação do elemento de coluna
+            
             const col = document.createElement('div');
-            col.classList.add('col'); // Segue as classes do Bootstrap para colunas
+            col.classList.add('col'); 
 
-            // Conteúdo do cartão
             col.innerHTML = `
                 <div class="card h-100">
+                <a href=""../public/detalhesdaserie.html?id=${serie.id}">
                     <img src="https://image.tmdb.org/t/p/w500${serie.poster_path}" class="card-img-top" alt="${serie.name}">
                     <div class="card-body">
                         <h5 class="card-title">${serie.name}</h5>
                         <p class="card-text text-truncate" style="max-height: 4rem; overflow: hidden;">
                             ${serie.overview || "Descrição indisponível."}
                         </p>
-                        <a href="../public/detalhesdaserie.html?id=${serie.id}" class="btn btn-primary">Ver Detalhes</a>
+                        
                     </div>
-                </div>
+                </div></a>
             `;
 
-            // Adiciona o cartão ao container de cartões
             cardsContainer.appendChild(col);
         });
     })
     .catch(error => console.error('Erro:', error));
 
-// Buscar dados do autor
 fetch(`${url}/autor`)
     .then(response => response.json())
     .then(data => {
@@ -95,13 +89,12 @@ fetch(`${url}/autor`)
         document.getElementById("autor-turma").textContent = `${data.turma}`;
         document.getElementById("autor-biografia").textContent = `${data.biografia}`;
 
-        document.querySelector(".github-link").href = data.github;
-        document.querySelector(".linkedin-link").href = data.linkedin;
-        document.querySelector(".instagram-link").href = data.instagram;
+        document.querySelector(".github-link").href = data.redes.github;
+        document.querySelector(".linkedin-link").href = data.redes.linkedin;
+        document.querySelector(".instagram-link").href = data.redes.instagram;
     })
     .catch(error => console.error("Erro ao buscar dados do autor:", error));
 
-// Buscar favoritos
 fetch(`${url}/favoritos`)
     .then(response => response.json())
     .then(data => {
@@ -118,24 +111,21 @@ fetch(`${url}/favoritos`)
     })
     .catch(error => console.error("Erro ao buscar favoritos:", error));
 
-    // URL do JSON Server
 const URL_FAVORITE_SERIES = "http://localhost:3000/favoritos";
 
-// Função para carregar os favoritos da API
 fetch('http://localhost:3000/favoritos')
   .then(response => {
     if (!response.ok) {
       throw new Error('Erro ao carregar favoritos');
     }
-    return response.json();  // Converte a resposta para JSON
+    return response.json();  
   })
   .then(data => {
     const container = document.getElementById('favorite-series-container');
-    container.innerHTML = ""; // Limpa o container antes de inserir os dados
+    container.innerHTML = ""; 
 
-    // Cria os cards dinamicamente
     data.forEach(item => {
-      // Cria o card para cada série favorita
+
       const card = `
         <div class="col">
           <div class="card h-100">
@@ -149,7 +139,7 @@ fetch('http://localhost:3000/favoritos')
           </div>
         </div>
       `;
-      container.innerHTML += card; // Adiciona o card ao contêiner
+      container.innerHTML += card; 
     });
   })
   .catch(error => console.error("Erro ao carregar favoritos:", error));

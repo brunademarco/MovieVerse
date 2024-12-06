@@ -5,32 +5,27 @@ const searchBtn = document.getElementById('search-btn');
 const searchInput = document.getElementById('search-input');
 const resultsContainer = document.getElementById('results-container');
 
-// Função para buscar séries pela API
 const searchCache = {};
 let debounceTimer;
 
 searchInput.addEventListener('input', () => {
     const query = searchInput.value.trim();
 
-    // Cancela buscas se o campo estiver vazio ou muito curto
     if (query.length < 2) { 
-        resultsContainer.innerHTML = ''; // Limpa os resultados
+        resultsContainer.innerHTML = ''; 
         return; 
     }
 
-    // Cancela chamadas anteriores
     clearTimeout(debounceTimer);
 
-    // Executa a busca após um pequeno atraso
     debounceTimer = setTimeout(() => {
-        searchSeries(query); // Chama a função de busca
-    }, 300); // Tempo do debounce
+        searchSeries(query); 
+    }, 300); 
 });
 
-// Função para buscar séries
 async function searchSeries(query) {
     if (searchCache[query]) {
-        renderSeries(searchCache[query]); // Usa os dados do cache
+        renderSeries(searchCache[query]); 
         return;
     }
 
@@ -39,7 +34,7 @@ async function searchSeries(query) {
     try {
         const response = await fetch(url);
         const data = await response.json();
-        searchCache[query] = data.results; // Armazena no cache
+        searchCache[query] = data.results; 
         renderSeries(data.results);
     } catch (error) {
         resultsContainer.innerHTML = '<p>Erro ao buscar séries. Tente novamente.</p>';
@@ -47,7 +42,6 @@ async function searchSeries(query) {
     }
 }
 
-// Função para carregar séries populares ao carregar a página
 async function loadInitialSeries() {
     const url = `${baseUrl}/tv/popular?api_key=${apiKey}&language=pt-BR`;
 
@@ -62,7 +56,7 @@ async function loadInitialSeries() {
 }
 
 function renderSeries(series) {
-    resultsContainer.innerHTML = ''; // Limpar resultados anteriores
+    resultsContainer.innerHTML = ''; 
 
     const filteredSeries = series.filter(serie => serie.overview && serie.overview.trim() !== '');
 
@@ -91,7 +85,6 @@ function renderSeries(series) {
     });
 }
 
-// Evento para iniciar a busca
 searchBtn.addEventListener('click', () => {
     const query = searchInput.value.trim();
     if (query) {
@@ -99,13 +92,11 @@ searchBtn.addEventListener('click', () => {
     }
 });
 
-// Evento de pressionamento da tecla Enter para realizar a busca
 searchInput.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
         searchBtn.click();
     }
 });
 
-// Carregar as séries populares assim que a página for carregada
 document.addEventListener('DOMContentLoaded', loadInitialSeries);
 
