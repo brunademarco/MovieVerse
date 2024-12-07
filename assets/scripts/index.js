@@ -38,7 +38,7 @@ fetch(URL_POPULAR_SERIES)
     .catch(error => console.error('Erro ao carregar séries:', error));
 
 
-fetch(URL_NEW_SERIES)
+    fetch(URL_NEW_SERIES)
     .then(response => {
         if (!response.ok) {
             throw new Error('Erro ao buscar dados das séries novas');
@@ -54,31 +54,30 @@ fetch(URL_NEW_SERIES)
         cardsContainer.innerHTML = ''; 
         
         series.forEach(serie => {
-            
             if (!serie.poster_path) return;
 
-            
             const col = document.createElement('div');
             col.classList.add('col'); 
 
             col.innerHTML = `
-                <div class="card h-100">
-                <a href=""../public/detalhesdaserie.html?id=${serie.id}">
-                    <img src="https://image.tmdb.org/t/p/w500${serie.poster_path}" class="card-img-top" alt="${serie.name}">
-                    <div class="card-body">
-                        <h5 class="card-title">${serie.name}</h5>
-                        <p class="card-text text-truncate" style="max-height: 4rem; overflow: hidden;">
-                            ${serie.overview || "Descrição indisponível."}
-                        </p>
-                        
+                <a href="../public/detalhesdaserie.html?id=${serie.id}" class="text-decoration-none">
+                    <div class="card h-100">
+                        <img src="https://image.tmdb.org/t/p/w500${serie.poster_path}" class="card-img-top" alt="${serie.name}">
+                        <div class="card-body">
+                            <h5 class="card-title">${serie.name}</h5>
+                            <p class="card-text text-truncate" style="max-height: 4rem; overflow: hidden;">
+                                ${serie.overview || "Descrição indisponível."}
+                            </p>
+                        </div>
                     </div>
-                </div></a>
+                </a>
             `;
 
             cardsContainer.appendChild(col);
         });
     })
     .catch(error => console.error('Erro:', error));
+
 
 fetch(`${url}/autor`)
     .then(response => response.json())
@@ -110,36 +109,43 @@ fetch(`${url}/favoritos`)
         });
     })
     .catch(error => console.error("Erro ao buscar favoritos:", error));
+    const URL_FAVORITE_SERIES = "http://localhost:3000/favoritos";
 
-const URL_FAVORITE_SERIES = "http://localhost:3000/favoritos";
-
-fetch('http://localhost:3000/favoritos')
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Erro ao carregar favoritos');
-    }
-    return response.json();  
-  })
-  .then(data => {
-    const container = document.getElementById('favorite-series-container');
-    container.innerHTML = ""; 
-
-    data.forEach(item => {
-
-      const card = `
-        <div class="col">
-          <div class="card h-100">
-            <img src="${item.imagem}" alt="${item.nome}" class="card-img-top" />
-            <a href="detalhesdaserie.html?id=${item.id}">
-              <div class="card-overlay">
-                <h5 class="card-title">${item.nome || "Nome não disponível"}</h5>
-                <p class="card-text">${item.descricao || "Descrição não disponível"}</p>
+    fetch(URL_FAVORITE_SERIES)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Erro ao carregar favoritos");
+        }
+        return response.json();
+      })
+      .then(data => {
+        const container = document.getElementById("favorite-series-container");
+    
+        container.innerHTML = "";
+    
+        if (!data || data.length === 0) {
+          container.innerHTML = "<p>Nenhum favorito encontrado.</p>";
+          return;
+        }
+    
+        data.forEach(item => {
+          if (!item.id || !item.imagem || !item.nome) return;
+    
+          const card = `
+            <div class="col">
+              <div class="card h-100">
+                <img src="${item.imagem}" alt="${item.nome}" class="card-img-top" />
+                <a href="detalhesdaserie.html?id=${encodeURIComponent(item.id)}" class="stretched-link">
+                  <div class="card-overlay">
+                    <h5 class="card-title">${item.nome || "Nome não disponível"}</h5>
+                    <p class="card-text">${item.descricao || "Descrição não disponível"}</p>
+                  </div>
+                </a>
               </div>
-            </a>
-          </div>
-        </div>
-      `;
-      container.innerHTML += card; 
-    });
-  })
-  .catch(error => console.error("Erro ao carregar favoritos:", error));
+            </div>
+          `;
+          container.innerHTML += card;
+        });
+      })
+      .catch(error => console.error("Erro ao carregar favoritos:", error));
+    
