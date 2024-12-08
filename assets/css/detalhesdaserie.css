@@ -113,3 +113,35 @@ img#serieposter.img-fluid {
 .info-box h5, .temps-eps h5 {
     color: white
 }
+
+@media (max-width: 768px) {
+    .descrição {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .caixa-menu-principal {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .botao-fav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .card.h-100 {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .descrição {
+        padding: 5px;
+    }
+
+    .card.h-100 {
+        max-width: 100%;
+    }
+}
