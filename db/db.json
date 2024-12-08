@@ -2,7 +2,7 @@
     "autor": {
         "id": "1",
         "nome": "Bruna De Marco",
-        "avatar": "../images/fotoaluna.jpeg",
+        "avatar": "file:///home/bruna/MovieVerse/assets/images/fotoaluna.jpeg",
         "curso": "Ciência da Computação",
         "turma": "Manhã",
         "biografia": "Sou estudante do primeiro período de ciência da computação na PUC Minas. Esta é minha primeira aplicação web e estou aberta a sugestões de melhorias e críticas construtivas, desejo a todos os visitantes do site uma ótima experiência.",
