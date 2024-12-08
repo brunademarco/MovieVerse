@@ -109,34 +109,36 @@ fetch(`${url}/favoritos`)
         });
     })
     .catch(error => console.error("Erro ao buscar favoritos:", error));
+
     const URL_FAVORITE_SERIES = "http://localhost:3000/favoritos";
 
     fetch(URL_FAVORITE_SERIES)
-      .then(response => {
+      .then((response) => {
         if (!response.ok) {
           throw new Error("Erro ao carregar favoritos");
         }
         return response.json();
       })
-      .then(data => {
+      .then((data) => {
         const container = document.getElementById("favorite-series-container");
     
-        container.innerHTML = "";
+        container.innerHTML = ""; // Limpa o container antes de adicionar novos cards
     
         if (!data || data.length === 0) {
           container.innerHTML = "<p>Nenhum favorito encontrado.</p>";
           return;
         }
     
-        data.forEach(item => {
+        data.forEach((item) => {
+          // Ignorar itens sem informações essenciais
           if (!item.id || !item.imagem || !item.nome) return;
     
           const card = `
             <div class="col">
               <div class="card h-100">
                 <img src="${item.imagem}" alt="${item.nome}" class="card-img-top" />
-                <a href="detalhesdaserie.html?id=${encodeURIComponent(item.id)}" class="stretched-link">
-                  <div class="card-overlay">
+                <a href="detalhesdaserie.html?id=${encodeURIComponent(item.id_serie)}" class="stretched-link">
+                  <div class="card-body">
                     <h5 class="card-title">${item.nome || "Nome não disponível"}</h5>
                     <p class="card-text">${item.descricao || "Descrição não disponível"}</p>
                   </div>
@@ -144,8 +146,9 @@ fetch(`${url}/favoritos`)
               </div>
             </div>
           `;
-          container.innerHTML += card;
+          container.innerHTML += card; // Adiciona o card ao container
         });
       })
-      .catch(error => console.error("Erro ao carregar favoritos:", error));
+      .catch((error) => console.error("Erro ao carregar favoritos:", error));
+    
     

@@ -121,3 +121,94 @@ main {
     justify-content: flex-start;
     width: 100%;
 }
+
+@media (max-width: 1200px) {
+  #carouselExampleCaptions {
+    max-width: 100%;
+    height: 600px; 
+  }
+
+  .novas-series .card.h-100 {
+    width: 100%;
+    height: 400px; 
+  }
+
+  .minhas-series .card.h-100 {
+    height: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cabecalho-exp {
+    flex-direction: column; 
+    text-align: center;
+  }
+
+  .caixa-info {
+    flex-direction: column; 
+    text-align: center;
+    margin: 20px;
+  }
+
+  .sobre-texto, .aluna-detalhes {
+    flex: 1 1 auto; 
+    margin: 10px;
+  }
+
+  #carouselExampleCaptions {
+    height: 400px; 
+  }
+
+  .novas-series .card.h-100 {
+    height: 300px; 
+  }
+
+  .logo h1 {
+    font-size: 1.5em; 
+  }
+
+  .explorador a {
+    padding: 15px 20px; 
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 576px) {
+  .cabecalho-exp {
+    padding: 10px;
+  }
+
+  .logo h1 {
+    font-size: 1.2em; 
+  }
+
+  .explorador a {
+    padding: 10px 15px;
+    font-size: 0.8em;
+  }
+
+  #carouselExampleCaptions {
+    height: 300px; 
+
+  .novas-series .card.h-100 {
+    height: 250px;
+  }
+
+  .footer h3 {
+    font-size: 1.2em;
+  }
+
+  .footer p {
+    font-size: 0.9em;
+  }
+
+  .foto-aluna {
+    width: 100px; 
+  }
+
+  .redes-sociais img {
+    width: 25px;
+    height: 25px;
+  }
+}
+}

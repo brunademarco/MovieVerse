@@ -16,13 +16,17 @@
     "favoritos": [
         {
             "id": 1,
-            "nome": "Sucession",
-            "imagem": "https://cloud.estacaonerd.com/wp-content/uploads/2023/03/02164759/KA-SUCCESSION_FINAL-SEASON-16x9-BRA_COBRANDED_LAUNCH.jpg",
-            "descricao": "Succession é uma série de televisão de comédia dramática norte-americana criada por Jesse Armstrong, transmitida originalmente pela HBO."
+            "id_serie": 2316,
+            "id_usuario": 1,
+            "nome": "The Office",
+            "imagem": "https://veja.abril.com.br/wp-content/uploads/2016/11/s9to-elenco.jpg?quality=70&strip=all",
+            "descricao": "The Office é uma série de comédia de situação americana que retrata o cotidiano dos funcionários de uma empresa de papelaria."
         },
 
         {
             "id": 2,
+            "id_serie": 100088,
+            "id_usuario": 1,
             "nome": "The last of us",
             "imagem": "https://blog.br.playstation.com/tachyon/sites/4/2022/07/eb49426b79917b624920ba5188cd8eaa52321c76.png?resize=1088,612&crop_strategy=smart",
             "descricao": "Joel, um sobrevivente solitário e que perdeu sua filha adolescente no início do apocalipse, recebe a missão de levar para fora de uma zona de quarentena uma menina de 14 anos, chamada Ellie. A jovem é a única humana conhecida que é imune ao fungo e se torna a esperança de uma cura."
@@ -30,6 +34,8 @@
 
         {
             "id": 3,
+            "id_serie": 1668,
+            "id_usuario": 1,
             "nome": "Friends",
             "imagem": "https://s2-techtudo.glbimg.com/mU1KQW1fQNO_B8Iv4HZDHtGHF0I=/0x0:1280x720/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2023/m/l/5PNMixTzqXXITYvs02jQ/tileburnedin.jfif",
             "descricao": "Friends é uma série de comédia norte-americana que acompanha a vida de seis amigos — Rachel, Ross, Monica, Chandler, Joey e Phoebe — enquanto enfrentam os desafios e as alegrias da vida adulta em Nova York."
